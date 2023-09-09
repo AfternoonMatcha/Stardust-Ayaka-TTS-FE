@@ -1,0 +1,104 @@
+<script setup>
+import { ref, watch, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import t from "@/utils/MatceTools.js"; //JS 方法工具箱
+
+const router = useRouter();
+const route = useRoute();
+
+import config from "/package.json";
+let version = config.version;
+
+let drawer = ref(null);
+</script>
+
+<template>
+    <v-layout>
+        <v-navigation-drawer
+            v-model="drawer"
+            temporary
+            theme="dark"
+            class="bg-brown"
+            density="comfortable"
+        >
+            <v-list-item
+                lines="two"
+                title="Stardust Ayaka TTS"
+                subtitle="星尘 · 绫华"
+                @click="router.push({ path: '/' })"
+            ></v-list-item>
+
+            <v-divider></v-divider>
+
+            <v-list density="comfortable" nav>
+                <v-list-item
+                    prepend-icon="mdi:mdi-home"
+                    title="首页"
+                    value="home"
+                    @click="router.push({ path: '/' })"
+                ></v-list-item>
+            </v-list>
+            <v-divider />
+            <v-list lines="three">
+                <v-list-subheader
+                    >{{ version }} /
+                    <a
+                        href="https://Matce.cn"
+                        style="color: inherit; text-decoration: none"
+                        target="_blank"
+                        >FE By: Matce</a
+                    ></v-list-subheader
+                >
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-app-bar
+            color="brown"
+            subtitle="test"
+            v-ripple="{ class: 'text-brown-lighten-1' }"
+        >
+            <template v-slot:prepend>
+                <v-app-bar-nav-icon
+                    @click.stop="drawer = !drawer"
+                ></v-app-bar-nav-icon>
+            </template>
+
+            <v-app-bar-title
+                @click="router.push({ path: '/' })"
+                style="cursor: pointer"
+                >Stardust Ayaka TTS</v-app-bar-title
+            >
+
+            <template v-slot:append>
+                <!-- <v-btn icon="mdi:mdi-dots-vertical"></v-btn> -->
+            </template>
+        </v-app-bar>
+
+        <v-main style="min-height: 100vh">
+            <div class="layerMain bg-brown-lighten-4">
+                <div class="layerContainer bg-white">
+                    <router-view />
+                </div>
+            </div>
+        </v-main>
+    </v-layout>
+</template>
+
+<style lang="scss" scoped>
+.layerMain {
+    height: calc(100% - 20px);
+    display: flex;
+    justify-content: center;
+
+    .layerContainer {
+        height: 100%;
+        flex: 1;
+        max-width: 1000px;
+        margin: 10px;
+        border-radius: 12px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+}
+</style>
+  
