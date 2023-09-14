@@ -14,13 +14,7 @@ let drawer = ref(null);
 
 <template>
     <v-layout>
-        <v-navigation-drawer
-            v-model="drawer"
-            temporary
-            theme="dark"
-            class="bg-brown"
-            density="comfortable"
-        >
+        <v-navigation-drawer v-model="drawer" temporary density="comfortable">
             <v-list-item
                 lines="two"
                 title="Stardust Ayaka TTS"
@@ -52,11 +46,7 @@ let drawer = ref(null);
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar
-            color="brown"
-            subtitle="test"
-            v-ripple="{ class: 'text-brown-lighten-1' }"
-        >
+        <v-app-bar subtitle="test" v-ripple>
             <template v-slot:prepend>
                 <v-app-bar-nav-icon
                     @click.stop="drawer = !drawer"
@@ -75,8 +65,8 @@ let drawer = ref(null);
         </v-app-bar>
 
         <v-main style="min-height: 100vh">
-            <div class="layerMain bg-brown-lighten-4">
-                <div class="layerContainer bg-white">
+            <div class="layerMain">
+                <div class="layerContainer">
                     <router-view />
                 </div>
             </div>

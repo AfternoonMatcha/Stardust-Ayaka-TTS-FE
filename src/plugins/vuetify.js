@@ -5,9 +5,11 @@ import { mdi } from 'vuetify/iconsets/mdi'
 // import { aliases, fa } from 'vuetify/iconsets/fa'
 import { createVuetify } from 'vuetify'
 
-
 const vuetify = createVuetify({
     // 在这里添加你的 Vuetify 配置选项
+    theme: {
+        defaultTheme: 'dark'
+    },
     icons: {
         defaultSet: 'mdi', // This is already the default value - only for display purposes
         // aliases,

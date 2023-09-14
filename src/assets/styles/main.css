@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    background: #d7ccc8
 }
 
 * {
@@ -18,6 +17,6 @@ button {
 }
 
 ::selection {
-    background: #9a7f75;
+    background: #fff8;
     color: white;
 }

@@ -13,7 +13,7 @@ const tools = ref([
 
 <template>
     <div class="main">
-        <div class="greeting text-brown-lighten-1">欢迎</div>
+        <div class="greeting">欢迎</div>
         <div class="toolBox mt-10">
             <v-card
                 height="100"
@@ -21,10 +21,10 @@ const tools = ref([
                 v-for="(tool, i) in tools"
                 :key="i"
                 cols="auto"
-                class="tool d-flex bg-brown-lighten-1 elevation-0 text-white"
+                class="tool d-flex elevation-0"
                 @click="router.push({ path: tool.url })"
             >
-                <div class="toolIcon bg-brown-lighten-3"></div>
+                <div class="toolIcon"></div>
                 <div class="toolTitle">{{ tool.title }}</div>
             </v-card>
         </div>
@@ -79,7 +79,7 @@ const tools = ref([
         }
 
         .tool:hover {
-            background-color: #795548 !important;
+            // background-color: #795548 !important;
 
             .toolIcon {
                 // height: 40px;
